@@ -19,7 +19,7 @@ public class ServidorTarefas {
 		while(true) {
 			// ESCUTA A CHEGADA DE UMA CONEXÃO, TRAVA ENQUANTO UMA NÃO CHEGA
 			Socket socket = servidor.accept(); 
-			System.out.println("Aceitando novo cliente na porta " + socket.getPort());
+			System.out.println(String.format("[Porta %d] *** Aceitando novo cliente ***", socket.getPort()));
 			
 			DistribuirTarefas distribuidor = new DistribuirTarefas(socket);
 			threadPool.execute(distribuidor);
